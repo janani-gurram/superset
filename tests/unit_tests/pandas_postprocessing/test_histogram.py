@@ -141,6 +141,7 @@ def test_histogram_with_some_non_numeric_values():
     except ValueError as e:
         assert str(e) == "Column 'group' contains non-numeric values"  # noqa: PT017
 
+
 def test_histogram_with_groupby_and_some_null_values():
     data_with_groupby_and_some_nulls = DataFrame(
         {
@@ -162,6 +163,7 @@ def test_histogram_with_groupby_and_some_null_values():
     ]
     assert result.values.tolist() == [["A", 2, 0, 1, 0, 2], ["B", 0, 2, 0, 2, 0]]
 
+
 def test_histogram_with_no_groupby_and_some_null_values():
     data_with_no_groupby_and_some_nulls = DataFrame(
         {
@@ -181,6 +183,7 @@ def test_histogram_with_no_groupby_and_some_null_values():
     ]
     assert result.values.tolist() == [[2, 2, 1, 2, 2]]
 
+
 def test_histogram_with_groupby_and_all_null_values():
     data_with_groupby_and_all_nulls = DataFrame(
         {
@@ -192,6 +195,7 @@ def test_histogram_with_groupby_and_all_null_values():
     
     result = histogram(data_with_groupby_and_all_nulls, "a", ["group"], bins)
     assert result.empty
+
 
 def test_histogram_with_no_groupby_and_all_null_values():
     data_with_no_groupby_and_all_nulls = DataFrame(
